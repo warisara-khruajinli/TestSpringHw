@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <bean id="me" class="int204.model.Warisara" scope="prototype" >
+        <property name="head" value="Namwaan" />
+        <property name="tail" value="084" />
+    </bean>
+    
+    <bean id="mine" class="int204.model.Khruajinli" scope="singleton">
+    	<constructor-arg ref="me" ></constructor-arg>
+    </bean>
+    
+    <bean id="listBean" class="int204.model.Term">
+    	<constructor-arg>
+    		<list>
+    			<ref bean="me"/>
+    			<ref bean="mine"/>
+    		</list>
+    	</constructor-arg>
+    </bean>
+
+</beans>
